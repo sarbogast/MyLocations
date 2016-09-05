@@ -7,15 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		269B7781A6486F174BA79BDB /* Pods_MyLocations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7061AD327EE7258D0633B394 /* Pods_MyLocations.framework */; };
+		B9557FD81D7D552000143ECA /* CategoryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9557FD71D7D552000143ECA /* CategoryPickerViewController.swift */; };
+		B9557FDB1D7D973B00143ECA /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9557FDA1D7D973B00143ECA /* Functions.swift */; };
 		B9778B3D1D786CFC008E9719 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9778B3C1D786CFC008E9719 /* AppDelegate.swift */; };
 		B9778B3F1D786CFC008E9719 /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9778B3E1D786CFC008E9719 /* CurrentLocationViewController.swift */; };
 		B9778B411D786CFC008E9719 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9778B401D786CFC008E9719 /* SecondViewController.swift */; };
 		B9778B441D786CFC008E9719 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9778B421D786CFC008E9719 /* Main.storyboard */; };
 		B9778B461D786CFC008E9719 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9778B451D786CFC008E9719 /* Assets.xcassets */; };
 		B9778B491D786CFC008E9719 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9778B471D786CFC008E9719 /* LaunchScreen.storyboard */; };
+		B9FC0E071D79B5F5005DB342 /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FC0E061D79B5F5005DB342 /* LocationDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		029925C1F18740B5B5D4E3C8 /* Pods-MyLocations.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyLocations.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyLocations/Pods-MyLocations.debug.xcconfig"; sourceTree = "<group>"; };
+		7061AD327EE7258D0633B394 /* Pods_MyLocations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyLocations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91DA634E9CB6887F1EF8134E /* Pods-MyLocations.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyLocations.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyLocations/Pods-MyLocations.release.xcconfig"; sourceTree = "<group>"; };
+		B9557FD71D7D552000143ECA /* CategoryPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryPickerViewController.swift; sourceTree = "<group>"; };
+		B9557FD91D7D8D9D00143ECA /* MyLocations-BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyLocations-BridgingHeader.h"; sourceTree = "<group>"; };
+		B9557FDA1D7D973B00143ECA /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		B9778B391D786CFC008E9719 /* MyLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9778B3C1D786CFC008E9719 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9778B3E1D786CFC008E9719 /* CurrentLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +34,7 @@
 		B9778B451D786CFC008E9719 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B9778B481D786CFC008E9719 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9778B4A1D786CFC008E9719 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9FC0E061D79B5F5005DB342 /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +42,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				269B7781A6486F174BA79BDB /* Pods_MyLocations.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D86DA16CFC63D8FADEAE44B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7061AD327EE7258D0633B394 /* Pods_MyLocations.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B9778B301D786CFC008E9719 = {
 			isa = PBXGroup;
 			children = (
 				B9778B3B1D786CFC008E9719 /* MyLocations */,
 				B9778B3A1D786CFC008E9719 /* Products */,
+				F273A0AD42FD751282C39704 /* Pods */,
+				1D86DA16CFC63D8FADEAE44B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,8 +85,21 @@
 				B9778B451D786CFC008E9719 /* Assets.xcassets */,
 				B9778B471D786CFC008E9719 /* LaunchScreen.storyboard */,
 				B9778B4A1D786CFC008E9719 /* Info.plist */,
+				B9FC0E061D79B5F5005DB342 /* LocationDetailsViewController.swift */,
+				B9557FD71D7D552000143ECA /* CategoryPickerViewController.swift */,
+				B9557FD91D7D8D9D00143ECA /* MyLocations-BridgingHeader.h */,
+				B9557FDA1D7D973B00143ECA /* Functions.swift */,
 			);
 			path = MyLocations;
+			sourceTree = "<group>";
+		};
+		F273A0AD42FD751282C39704 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				029925C1F18740B5B5D4E3C8 /* Pods-MyLocations.debug.xcconfig */,
+				91DA634E9CB6887F1EF8134E /* Pods-MyLocations.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +109,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B9778B4D1D786CFC008E9719 /* Build configuration list for PBXNativeTarget "MyLocations" */;
 			buildPhases = (
+				2291083CEF7A9B303E85B3AE /* [CP] Check Pods Manifest.lock */,
 				B9778B351D786CFC008E9719 /* Sources */,
 				B9778B361D786CFC008E9719 /* Frameworks */,
 				B9778B371D786CFC008E9719 /* Resources */,
+				CE2BDF30BD4FC486A9A61100 /* [CP] Embed Pods Frameworks */,
+				5A0214E94C24489A8222B0BA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -133,14 +171,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2291083CEF7A9B303E85B3AE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5A0214E94C24489A8222B0BA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyLocations/Pods-MyLocations-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE2BDF30BD4FC486A9A61100 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyLocations/Pods-MyLocations-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B9778B351D786CFC008E9719 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9FC0E071D79B5F5005DB342 /* LocationDetailsViewController.swift in Sources */,
 				B9778B411D786CFC008E9719 /* SecondViewController.swift in Sources */,
 				B9778B3D1D786CFC008E9719 /* AppDelegate.swift in Sources */,
+				B9557FD81D7D552000143ECA /* CategoryPickerViewController.swift in Sources */,
 				B9778B3F1D786CFC008E9719 /* CurrentLocationViewController.swift in Sources */,
+				B9557FDB1D7D973B00143ECA /* Functions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,23 +340,27 @@
 		};
 		B9778B4E1D786CFC008E9719 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 029925C1F18740B5B5D4E3C8 /* Pods-MyLocations.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MyLocations/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = be.businesstraining.MyLocations;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyLocations/MyLocations-BridgingHeader.h";
 			};
 			name = Debug;
 		};
 		B9778B4F1D786CFC008E9719 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91DA634E9CB6887F1EF8134E /* Pods-MyLocations.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MyLocations/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = be.businesstraining.MyLocations;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyLocations/MyLocations-BridgingHeader.h";
 			};
 			name = Release;
 		};
@@ -290,6 +383,7 @@
 				B9778B4F1D786CFC008E9719 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

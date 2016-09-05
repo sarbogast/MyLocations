@@ -28,6 +28,8 @@ class CurrentLocationViewController: UIViewController {
     var performingReverseGeocoding = false
     var lastGeocodingError:NSError?
     
+    var timer: NSTimer?
+    
     @IBAction func getButtonTapped(sender: AnyObject) {
         let authStatus = CLLocationManager.authorizationStatus()
         
@@ -148,14 +150,40 @@ class CurrentLocationViewController: UIViewController {
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
             updatingLocation = true
+            
+            timer = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: #selector(didTimeOut), userInfo: nil, repeats: false)
+        }
+    }
+    
+    func didTimeOut() {
+        print("Time out")
+        if location == nil {
+            stopLocationManager()
+            lastLocationError = NSError(domain: "MyLocationsErrorDomain", code: 1, userInfo: nil)
+            updateLabels()
+            configureGetButton()
         }
     }
     
     func stopLocationManager() {
         if updatingLocation {
+            if let timer = self.timer {
+                timer.invalidate()
+            }
             locationManager.stopUpdatingLocation()
             locationManager.delegate = nil
             updatingLocation = false
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "TagLocation" {
+            if let navigationController = segue.destinationViewController as? UINavigationController, locationDetailsViewController = navigationController.viewControllers[0] as? LocationDetailsViewController {
+                
+                locationDetailsViewController.coordinate = location!.coordinate
+                locationDetailsViewController.placemark = placemark
+                
+            }
         }
     }
 }
@@ -186,6 +214,11 @@ extension CurrentLocationViewController: CLLocationManagerDelegate {
             return
         }
         
+        var distance = CLLocationDistance(DBL_MAX)
+        if let location = location {
+            distance = newLocation.distanceFromLocation(location)
+        }
+        
         if location == nil || newLocation.horizontalAccuracy <= location!.horizontalAccuracy {
             lastLocationError = nil
             location = newLocation
@@ -194,6 +227,10 @@ extension CurrentLocationViewController: CLLocationManagerDelegate {
             if newLocation.horizontalAccuracy <= locationManager.desiredAccuracy {
                 stopLocationManager()
                 configureGetButton()
+                
+                if distance > 0 {
+                    performingReverseGeocoding = false
+                }
             }
             
             if !performingReverseGeocoding {
@@ -211,6 +248,14 @@ extension CurrentLocationViewController: CLLocationManagerDelegate {
                     self.performingReverseGeocoding = false
                     self.updateLabels()
                 }
+            }
+        } else if distance < 1.0 {
+            let timeInterval = newLocation.timestamp.timeIntervalSinceDate(location!.timestamp)
+            if timeInterval > 10 {
+                print("Force done")
+                stopLocationManager()
+                updateLabels()
+                configureGetButton()
             }
         }
     }
