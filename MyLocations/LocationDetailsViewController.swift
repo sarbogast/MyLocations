@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import MBProgressHUD
+import CoreData
 
 class LocationDetailsViewController: UITableViewController {
 
@@ -28,22 +29,34 @@ class LocationDetailsViewController: UITableViewController {
         return formatter
     }()
     var category:String = "No Category"
+    var date = NSDate()
+    var managedObjectContext: NSManagedObjectContext!
     
     @IBAction func cancelTapped(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func doneTapped(sender: AnyObject) {
-        
-        let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        hud.mode = .CustomView
-        let image = UIImage(named: "Checkmark")?.imageWithRenderingMode(.AlwaysTemplate)
-        hud.customView = UIImageView(image: image)
-        hud.square = true
-        hud.label.text = "Done"
-        
-        afterDelay(0.5) { 
-            self.dismissViewControllerAnimated(true, completion: nil)
+        let location = NSEntityDescription.insertNewObjectForEntityForName("Location", inManagedObjectContext: self.managedObjectContext) as! Location
+        location.locationDescription = descriptionTextView.text
+        location.category = self.category
+        location.latitude = self.coordinate.latitude
+        location.longitude = self.coordinate.longitude
+        location.date = self.date
+        location.placemark = self.placemark
+        do {
+            try managedObjectContext.save()
+            let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+            hud.mode = .CustomView
+            let image = UIImage(named: "Checkmark")?.imageWithRenderingMode(.AlwaysTemplate)
+            hud.customView = UIImageView(image: image)
+            hud.square = true
+            hud.label.text = "Done"
+            afterDelay(0.5) {
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+        } catch {
+            fatalCoreDataError(error)
         }
     }
     
@@ -61,7 +74,7 @@ class LocationDetailsViewController: UITableViewController {
             addressLabel.text = "No address found"
         }
         
-        dateLabel.text = formatDate(NSDate())
+        dateLabel.text = formatDate(date)
         
         categoryLabel.text = category
     }

@@ -7,15 +7,69 @@
 //
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    lazy var managedObjectContext: NSManagedObjectContext = {
+    
+        guard let modelURL = NSBundle.mainBundle().URLForResource("DataModel", withExtension: "momd") else {
+            fatalError("Could not find data model in app bundle")
+        }
+        
+        guard let model = NSManagedObjectModel(contentsOfURL: modelURL) else {
+            fatalError("Error initializing model from: \(modelURL)")
+        }
+        
+        let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+        let documentsDirectory = urls[0]
+        print(documentsDirectory)
+        let storeURL = documentsDirectory.URLByAppendingPathComponent("DataStore.sqlite")
+        
+        do {
+            let coordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
+            try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeURL, options: nil)
+            
+            let context = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+            context.persistentStoreCoordinator = coordinator
+            return context
+        } catch {
+            fatalError("Error adding persistent store at \(storeURL): \(error)")
+        }
+    }()
+    
+    func listenForFatalCoreDataNotifications() {
+        NSNotificationCenter.defaultCenter().addObserverForName(MyManagedObjectContextSaveDidFailNotification, object: nil, queue: NSOperationQueue.mainQueue()) { notification in
+            let alert = UIAlertController(title: "Internal error", message: "There was a fatal error in the app and it cannot continue.\n\nPress OK to terminate the app. Sorry for the inconvenience. Bonjour à ta mère.", preferredStyle: .Alert)
+            let action = UIAlertAction(title: "OK", style: .Default, handler: { action in
+                fatalError("Fatal Core Data error")
+            })
+            alert.addAction(action)
+            self.viewControllerForShowingAlert().presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func viewControllerForShowingAlert() -> UIViewController {
+        let rootViewController = self.window!.rootViewController!
+        if let presentedViewController = rootViewController.presentedViewController {
+            return presentedViewController
+        } else {
+            return rootViewController
+        }
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        if let tabBarController = window!.rootViewController as? UITabBarController {
+            if let tabBarViewControllers = tabBarController.viewControllers, currentLocationViewController = tabBarViewControllers[0] as? CurrentLocationViewController {
+                currentLocationViewController.managedObjectContext = managedObjectContext
+            }
+        }
+        
+        listenForFatalCoreDataNotifications()
+        
         return true
     }
 

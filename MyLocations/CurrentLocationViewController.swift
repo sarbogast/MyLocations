@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import CoreData
 
 class CurrentLocationViewController: UIViewController {
     @IBOutlet weak var messageLabel: UILabel!
@@ -29,6 +30,7 @@ class CurrentLocationViewController: UIViewController {
     var lastGeocodingError:NSError?
     
     var timer: NSTimer?
+    var managedObjectContext:NSManagedObjectContext!
     
     @IBAction func getButtonTapped(sender: AnyObject) {
         let authStatus = CLLocationManager.authorizationStatus()
@@ -179,6 +181,8 @@ class CurrentLocationViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "TagLocation" {
             if let navigationController = segue.destinationViewController as? UINavigationController, locationDetailsViewController = navigationController.viewControllers[0] as? LocationDetailsViewController {
+                
+                locationDetailsViewController.managedObjectContext = self.managedObjectContext
                 
                 locationDetailsViewController.coordinate = location!.coordinate
                 locationDetailsViewController.placemark = placemark
