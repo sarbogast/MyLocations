@@ -20,6 +20,9 @@ class SecondViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func didSwipe(sender: AnyObject) {
+        self.tabBarController?.selectedIndex = 0
+    }
 
 }
 

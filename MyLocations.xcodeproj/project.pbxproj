@@ -13,6 +13,8 @@
 		B9557FDE1D7D9ABE00143ECA /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9557FDC1D7D9ABD00143ECA /* DataModel.xcdatamodeld */; };
 		B9557FE61D7D9DBC00143ECA /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9557FE41D7D9DBC00143ECA /* Location.swift */; };
 		B9557FE71D7D9DBC00143ECA /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9557FE51D7D9DBC00143ECA /* Location+CoreDataProperties.swift */; };
+		B9557FE91D7EAA4D00143ECA /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9557FE81D7EAA4D00143ECA /* LocationsViewController.swift */; };
+		B9557FEB1D7EAC3700143ECA /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9557FEA1D7EAC3700143ECA /* LocationCell.swift */; };
 		B9778B3D1D786CFC008E9719 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9778B3C1D786CFC008E9719 /* AppDelegate.swift */; };
 		B9778B3F1D786CFC008E9719 /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9778B3E1D786CFC008E9719 /* CurrentLocationViewController.swift */; };
 		B9778B411D786CFC008E9719 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9778B401D786CFC008E9719 /* SecondViewController.swift */; };
@@ -32,6 +34,8 @@
 		B9557FDD1D7D9ABD00143ECA /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		B9557FE41D7D9DBC00143ECA /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B9557FE51D7D9DBC00143ECA /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B9557FE81D7EAA4D00143ECA /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
+		B9557FEA1D7EAC3700143ECA /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		B9778B391D786CFC008E9719 /* MyLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9778B3C1D786CFC008E9719 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9778B3E1D786CFC008E9719 /* CurrentLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 				B9557FD91D7D8D9D00143ECA /* MyLocations-BridgingHeader.h */,
 				B9557FDA1D7D973B00143ECA /* Functions.swift */,
 				B9557FDC1D7D9ABD00143ECA /* DataModel.xcdatamodeld */,
+				B9557FE81D7EAA4D00143ECA /* LocationsViewController.swift */,
+				B9557FEA1D7EAC3700143ECA /* LocationCell.swift */,
 			);
 			path = MyLocations;
 			sourceTree = "<group>";
@@ -241,11 +247,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9557FE91D7EAA4D00143ECA /* LocationsViewController.swift in Sources */,
 				B9FC0E071D79B5F5005DB342 /* LocationDetailsViewController.swift in Sources */,
 				B9778B411D786CFC008E9719 /* SecondViewController.swift in Sources */,
 				B9557FE61D7D9DBC00143ECA /* Location.swift in Sources */,
 				B9778B3D1D786CFC008E9719 /* AppDelegate.swift in Sources */,
 				B9557FDE1D7D9ABE00143ECA /* DataModel.xcdatamodeld in Sources */,
+				B9557FEB1D7EAC3700143ECA /* LocationCell.swift in Sources */,
 				B9557FE71D7D9DBC00143ECA /* Location+CoreDataProperties.swift in Sources */,
 				B9557FD81D7D552000143ECA /* CategoryPickerViewController.swift in Sources */,
 				B9778B3F1D786CFC008E9719 /* CurrentLocationViewController.swift in Sources */,
