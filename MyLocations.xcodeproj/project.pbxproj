@@ -15,6 +15,8 @@
 		B9557FE71D7D9DBC00143ECA /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9557FE51D7D9DBC00143ECA /* Location+CoreDataProperties.swift */; };
 		B9557FE91D7EAA4D00143ECA /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9557FE81D7EAA4D00143ECA /* LocationsViewController.swift */; };
 		B9557FEB1D7EAC3700143ECA /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9557FEA1D7EAC3700143ECA /* LocationCell.swift */; };
+		B9752D7A1D7FFF4600B2DB27 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9752D791D7FFF4600B2DB27 /* MapKit.framework */; };
+		B9752D7C1D80004F00B2DB27 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9752D7B1D80004F00B2DB27 /* MapViewController.swift */; };
 		B9778B3D1D786CFC008E9719 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9778B3C1D786CFC008E9719 /* AppDelegate.swift */; };
 		B9778B3F1D786CFC008E9719 /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9778B3E1D786CFC008E9719 /* CurrentLocationViewController.swift */; };
 		B9778B411D786CFC008E9719 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9778B401D786CFC008E9719 /* SecondViewController.swift */; };
@@ -36,6 +38,8 @@
 		B9557FE51D7D9DBC00143ECA /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B9557FE81D7EAA4D00143ECA /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		B9557FEA1D7EAC3700143ECA /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
+		B9752D791D7FFF4600B2DB27 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		B9752D7B1D80004F00B2DB27 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		B9778B391D786CFC008E9719 /* MyLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9778B3C1D786CFC008E9719 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9778B3E1D786CFC008E9719 /* CurrentLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9752D7A1D7FFF4600B2DB27 /* MapKit.framework in Frameworks */,
 				269B7781A6486F174BA79BDB /* Pods_MyLocations.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,6 +67,7 @@
 		1D86DA16CFC63D8FADEAE44B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B9752D791D7FFF4600B2DB27 /* MapKit.framework */,
 				7061AD327EE7258D0633B394 /* Pods_MyLocations.framework */,
 			);
 			name = Frameworks;
@@ -112,6 +118,7 @@
 				B9557FDC1D7D9ABD00143ECA /* DataModel.xcdatamodeld */,
 				B9557FE81D7EAA4D00143ECA /* LocationsViewController.swift */,
 				B9557FEA1D7EAC3700143ECA /* LocationCell.swift */,
+				B9752D7B1D80004F00B2DB27 /* MapViewController.swift */,
 			);
 			path = MyLocations;
 			sourceTree = "<group>";
@@ -254,6 +261,7 @@
 				B9778B3D1D786CFC008E9719 /* AppDelegate.swift in Sources */,
 				B9557FDE1D7D9ABE00143ECA /* DataModel.xcdatamodeld in Sources */,
 				B9557FEB1D7EAC3700143ECA /* LocationCell.swift in Sources */,
+				B9752D7C1D80004F00B2DB27 /* MapViewController.swift in Sources */,
 				B9557FE71D7D9DBC00143ECA /* Location+CoreDataProperties.swift in Sources */,
 				B9557FD81D7D552000143ECA /* CategoryPickerViewController.swift in Sources */,
 				B9778B3F1D786CFC008E9719 /* CurrentLocationViewController.swift in Sources */,
