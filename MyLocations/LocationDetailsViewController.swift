@@ -30,14 +30,35 @@ class LocationDetailsViewController: UITableViewController {
     }()
     var category:String = "No Category"
     var date = NSDate()
+    var descriptionText = ""
     var managedObjectContext: NSManagedObjectContext!
+    var locationToEdit: Location? {
+        didSet {
+            if let location = locationToEdit {
+                descriptionText = location.locationDescription
+                category = location.category
+                date = location.date
+                coordinate = CLLocationCoordinate2DMake(location.latitude, location.longitude)
+                placemark = location.placemark
+            }
+        }
+    }
     
     @IBAction func cancelTapped(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func doneTapped(sender: AnyObject) {
-        let location = NSEntityDescription.insertNewObjectForEntityForName("Location", inManagedObjectContext: self.managedObjectContext) as! Location
+        let location: Location
+        var doneMessage = ""
+        if let temp = locationToEdit {
+            location = temp
+            doneMessage = "Updated"
+        } else {
+            location = NSEntityDescription.insertNewObjectForEntityForName("Location", inManagedObjectContext: self.managedObjectContext) as! Location
+            doneMessage = "Tagged"
+        }
+        
         location.locationDescription = descriptionTextView.text
         location.category = self.category
         location.latitude = self.coordinate.latitude
@@ -51,7 +72,7 @@ class LocationDetailsViewController: UITableViewController {
             let image = UIImage(named: "Checkmark")?.imageWithRenderingMode(.AlwaysTemplate)
             hud.customView = UIImageView(image: image)
             hud.square = true
-            hud.label.text = "Done"
+            hud.label.text = doneMessage
             afterDelay(0.5) {
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
@@ -63,8 +84,14 @@ class LocationDetailsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        descriptionTextView.text = ""
-        categoryLabel.text = ""
+        if let location = locationToEdit {
+            self.title = "Edit Location"
+        } else {
+            self.title = "Tag Location"
+        }
+        
+        descriptionTextView.text = descriptionText
+        categoryLabel.text = category
         latitudeLabel.text = String(format: "%.8f", coordinate.latitude)
         longitudeLabel.text = String(format: "%.8f", coordinate.longitude)
         

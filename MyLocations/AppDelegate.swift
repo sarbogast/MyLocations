@@ -69,6 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
                 if let navigationController =  tabBarViewControllers[1] as? UINavigationController, locationsViewController = navigationController.viewControllers[0] as? LocationsViewController {
                     locationsViewController.managedObjectContext = managedObjectContext
+                    let _ = locationsViewController.view
                 }
             }
         }
